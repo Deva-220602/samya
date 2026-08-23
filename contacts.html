@@ -25,18 +25,74 @@
     </header><br><br>
     <main>
     <section>
-        <div class="header-container">
-      <div class="decorator-lines">
-        <span class="line"></span>
-        <span class="square"></span>
-        <span class="line"></span>
-      </div>
-      <center>
-      <h2 class="main-title">Contact us</h2></center>
-      <p class="subtitle" style="color: black; font-size: larger;">
-         Have a question about our botanical blends, or need help finding the perfect herbal ritual for your daily routine? We’re here to guide you. Every product we make is crafted with patience and care, and we bring that same dedicated attention to answering your questions.
-      </p>
-    </div><br><br>
+   <div class="header-container" style="max-width: 800px; margin: 0 auto; padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+  <style>
+    /* Styling for the decorative element above the title */
+    .decorator-lines {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      margin-bottom: 25px;
+    }
+    .decorator-lines .line {
+      display: inline-block;
+      height: 2px;
+      width: 80px;
+      background-color: #0f8a3a;
+    }
+    .decorator-lines .square {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-color: #0f8a3a;
+      transform: rotate(45deg); /* Optional: turns the square into a diamond shape matching your screenshot style */
+    }
+    
+    /* Typography adjustments */
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      color: #2C2520;
+      font-size: 42px;
+      margin: 0 0 20px 0;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .subtitle {
+      color: #2C2520;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0 auto;
+      max-width: 680px;
+    }
+
+    /* Mobile specific adjustments to balance spacing */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 32px;
+      }
+      .subtitle {
+        font-size: 16px;
+      }
+      .decorator-lines .line {
+        width: 50px;
+      }
+    }
+  </style>
+
+  <div class="decorator-lines">
+    <span class="line"></span>
+    <span class="square"></span>
+    <span class="line"></span>
+  </div>
+  
+  <h2 class="main-title">Contact us</h2>
+  <p class="subtitle">
+     Have a question about our botanical blends, or need help finding the perfect herbal ritual for your daily routine? We’re here to guide you. Every product we make is crafted with patience and care, and we bring that same dedicated attention to answering your questions.
+  </p>
+</div>
+<br><br>
     <div class="header-container">
       <div class="decorator-lines">
         <span class="line"></span>
