@@ -179,18 +179,61 @@
         </div><br><br>
          <hr class="marginline">
         <!-- FLAGSHIP INNOVATION SECTION -->
-<section style="background-color: #FDFCF7; padding: 80px 20px; font-family: 'Inter', sans-serif;">
+<section style="background-color: #FDFCF7; padding: 40px 15px; font-family: 'Inter', sans-serif; overflow: hidden;">
   <style>
+    /* Desktop defaults using standard CSS variables to stay clean */
+    .responsive-section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .responsive-image-wrapper {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding: 40px 0;
+      box-sizing: border-box;
+    }
+    .responsive-header-block {
+      flex: 1.2;
+      min-width: 300px;
+      position: relative;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
     /* Mobile-first layout adaptations for smaller screen widths */
     @media (max-width: 768px) {
       .responsive-section-container {
+        flex-direction: column !important;
+        gap: 30px !important;
         text-align: center !important;
       }
+      .responsive-image-wrapper {
+        min-width: 100% !important;
+        width: 100% !important;
+        padding: 20px 10px !important;
+      }
+      .responsive-image-wrapper img {
+        max-width: 90% !important; /* Prevents large image card shadows from clipping off-screen */
+      }
       .responsive-header-block {
+        min-width: 100% !important;
+        width: 100% !important;
         text-align: center !important;
+        padding: 0 10px !important;
       }
       .responsive-badge {
         margin: 0 auto 12px auto !important;
+      }
+      .responsive-grid-matrix {
+        grid-template-columns: 1fr !important; /* Force items to stack vertically on small screens */
+        width: 100% !important;
       }
       .responsive-pill-card {
         text-align: center !important;
@@ -198,17 +241,24 @@
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
       .responsive-btn-group {
         justify-content: center !important;
+        width: 100% !important;
+      }
+      .responsive-btn-group a {
+        width: 100% !important; /* Full width tap target on mobile views */
+        box-sizing: border-box !important;
       }
     }
   </style>
 
-  <div class="responsive-section-container" style="max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+  <div class="responsive-section-container">
     
     <!-- Left Column: Product Spotlight Graphic -->
-    <div style="flex: 1; min-width: 350px; display: flex; justify-content: center; position: relative; padding: 40px 0;">
+    <div class="responsive-image-wrapper">
       <!-- Subtle background glow shape to add depth -->
       <div style="position: absolute; width: 85%; height: 85%; background-color: #FAF6EE; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
       <!-- REPLACE WITH YOUR HEALTH MIX PRODUCT BAG IMAGE -->
@@ -216,13 +266,13 @@
     </div>
 
     <!-- Right Column: Strategic Feature Content -->
-    <div class="responsive-header-block" style="flex: 1.2; min-width: 350px; position: relative; text-align: left;">
+    <div class="responsive-header-block">
       <span class="responsive-badge" style="color: #0f8a3a; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; font-weight: 600; display: block; margin-bottom: 12px;">Our Flagship Innovation</span>
       <h2 style="font-family: 'Playfair Display', serif; color: #2C2520; font-size: 38px; margin: 0 0 15px 0; line-height: 1.2;">The Ultimate 36-in-1 Nourishment Blend</h2>
       <p style="color: #555; line-height: 1.7; font-size: 16px; margin: 0 0 35px 0;">Fuel your family’s day with our premium Multi-Grain Health Mix. Meticulously slow-roasted and stone-ground from 36 hand-selected millets, grains, ancient rices, organic seeds, and rich nuts.</p>
       
       <!-- Feature Metrics Grid Matrix -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div class="responsive-grid-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
         
         <!-- Pillar 1 -->
         <div class="responsive-pill-card" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #EAE6E1; box-shadow: 0 4px 12px rgba(0,0,0,0.02); text-align: left;">
