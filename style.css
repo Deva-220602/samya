@@ -95,7 +95,7 @@ body {
   border-top-right-radius: 16px;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   font-family: sans-serif;
-  display:none;
+display: none;
   z-index: 5;
 }
 
@@ -146,18 +146,8 @@ body {
 }
 
 /* Mobile Optimization Styles */
-@media screen and (max-width: 768px) {
-  
-  /* 1. Fix Top Banner Image Overflow */
-  /* Target the main banner image container to prevent sideways stretching */
-  .swiper mySwiper, 
-  .swiper-wrapper, 
-  .swiper-slide { 
-    max-width: 100% !important;
-    height: auto !important;
-    display: block;
-    object-fit: cover;
-  }
+@media screen and (max-width: 480px) {
+
 
   /* 2. Fix Bottom Navigation Bar Constraints */
   /* Force the navigation bar to stretch fully across mobile viewports */
@@ -175,13 +165,10 @@ body {
     display: flex !important;
     justify-content: space-around !important;
   }
-
-  /* 3. Ensure Body Doesn't Scroll Horizontally */
-  html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
 }
+  /* 3. Ensure Body Doesn't Scroll Horizontally */
+  
+
 
 
 /* text scroll*/
@@ -261,18 +248,7 @@ body {
     margin-top: 5px;
 }
 
-/* Ensure the swiper adapts cleanly to mobile heights */
-.mySwiper {
-  width: 100%;
-  height: 100%; /* Desktop Height */
-}
 
-.mySwiper .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* Essential: Prevents your products from flattening or squishing */
-  object-position: center; /* Keeps the centered tea canisters and cups in the exact middle of the screen */
-}
 
 /* Mobile Screen Height Adjustments */
 @media (max-width: 768px) {
