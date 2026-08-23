@@ -1,0 +1,1225 @@
+/* --- Global Reset & Base Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: black;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-clip: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.marginline{
+    border: none;               /* Removes the default 3D browser border */
+  height: 1px;                /* Controls the thickness of the line */
+  background-color: #0f8811;  /* Sets the line color (Hex, RGB, or name) */
+  width: 50%;                 /* Controls the width (e.g., 50% of the screen) */
+  margin: 20px auto; 
+  border-radius: 4px;
+}
+
+/* splash screen*/
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color:white; /* Match your video background */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#splash-video {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+
+/* Hide splash screen when video ends */
+#splash-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+/* --- Header & Navigation Layout --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    margin: 15px;
+    border-radius: 15px;
+}
+.header{
+     opacity: 0; /* Keeps elements hidden until animation begins */
+  animation-name: fadeInDown;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* Smooth deceleration */
+  animation-fill-mode: forwards; /* Keeps the final state (opacity: 1) active */
+  animation-delay: 0.2s;
+}
+@keyframes fadeInDown{
+    from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Base styles for the bottom navigation bar */
+.bottom-nav {
+    position:fixed;
+    right: 0;
+    left:0;
+    bottom: 0;
+  background-color: #34b1ff; /* Purple color matching your image */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  display:none;
+  z-index: 5;
+}
+
+/* Individual navigation item */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6); /* Semi-transparent white for inactive state */
+  text-decoration: none;
+  font-size: 12px;
+  width: 20%;
+  height: 100%;
+  transition: color 0.2s ease;
+}
+
+/* Icon scaling */
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+/* Active item state */
+.nav-item.active {
+  color: #FFFFFF; /* Fully white for active state */
+  font-weight: bold;
+}
+@media screen and (max-width:500px) {
+    .bottom-nav{
+        display: block;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .navigation{
+        display: none;
+    }
+    .slide-img{
+        width: 200px;
+        height: 200px;
+    }
+    .hero-content a{
+        display: none;
+    }
+    
+}
+
+/* text scroll*/
+.text-scroll{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    font-size: 20px;
+    padding-block: 8px;
+     opacity: 0; /* Keeps elements hidden until animation begins */
+  animation-name: fadeInDown;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* Smooth deceleration */
+  animation-fill-mode: forwards; /* Keeps the final state (opacity: 1) active */
+  animation-delay: 0.2s;
+}
+ @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateZ(-50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateZ(0px);
+    }
+ }
+
+.scroll-text{
+    background-color:#4fbfa8;
+  color: #111111;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid #f0eae1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  white-space: nowrap;
+}
+.scroll-content{
+   display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;         /* Keeps uniform spacing between your images */
+    padding-right: 20px; 
+    animation: scroll 25s linear infinite;
+}
+
+
+@keyframes scroll{
+0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves exactly halfway so the duplicate track cleanly replaces the first */
+    }
+}
+
+
+
+.logo-area h1 {
+    font-size: 32px;
+    font-weight: normal;
+    color: #449e48; /* Herbal green tone */
+}
+
+.logo-area h1 span {
+    color: #4fbfa8; /* Secondary teal tone */
+    font-style: italic;
+    font-weight: bold;
+}
+
+.logo-area p {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #888888;
+    margin-top: 5px;
+}
+
+/* Ensure the swiper adapts cleanly to mobile heights */
+.mySwiper {
+  width: 100%;
+  height: 100%; /* Desktop Height */
+}
+
+.mySwiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Essential: Prevents your products from flattening or squishing */
+  object-position: center; /* Keeps the centered tea canisters and cups in the exact middle of the screen */
+}
+
+/* Mobile Screen Height Adjustments */
+@media (max-width: 768px) {
+  .mySwiper {
+    width:  500px ;
+    height: 300px; /* Taller, phone-friendly landscape ratio for mobile */
+  }
+  .logo-image{
+    width: 100px;
+    height: 100px;
+  }
+ .products-img{
+    height:100%;
+ }
+}
+
+.introduction{
+
+  padding: 20px;
+  border: 1px ;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+ }
+  .core-benefits-1{
+  padding: 20px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+    gap: 20px;       
+    width: 100%;
+    box-sizing: border-box;
+ }
+
+ .core-benefits-1 div{
+  background-color: whitesmoke ;
+   border-radius: 5px;
+  margin-left: 20px;
+  color:black;
+  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;  
+}
+ .ten{
+  flex: 1 1 calc(25% - 20px); /* Base width is 25% on desktop, minused by the gap */
+    min-width: 250px;           /* Prevents cards from getting too squeezed/narrow */
+    max-width: 350px;           /* Keeps cards from stretching too wide on massive screens */
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff;
+    box-sizing: border-box;
+ }
+ .fadeUp {
+  animation: fadeInSlideLeft 5S ;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+ @keyframes fadeInSlideLeft {
+   from{
+    opacity: 0;
+    transform: translateY(-40px) scale(0.5) ;
+   }
+   to{
+     opacity: 1;
+    transform: translateY(0) scale(1) ; 
+
+   }
+ }
+ 
+ 
+ @keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+ .t-image{
+    display: flex;
+    border-radius: 10px;
+ }
+
+
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding-bottom: 8px;
+}
+
+.navigation ul li a:hover{
+    color: #4fbfa8;
+    border-bottom: 3px solid #4fbfa8;
+}
+
+/* --- Hero Showcase Section --- */
+.hero-section {
+    position: relative;
+    min-height: calc(100vh - 100px);
+    z-index: 500;
+    background-color:white; /* Soft clean texture replacement background */
+    display: flex;
+    align-items: center;
+    padding: 40px 8%;
+    z-index: 1;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: 56px;
+    color: #449e48;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.hero-content h2 span {
+    color: #4fbfa8;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: #666666;
+    font-style: italic;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.hero-content{
+    opacity: 0;
+    animation: fadeInLeft;
+    animation-duration: 15s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* Smooth deceleration */
+  animation-fill-mode: forwards; /* Keeps the final state (opacity: 1) active */
+  animation-delay: 3s;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+
+}
+
+@keyframes fadeInLeft{
+      from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+/* --- Read More UI Button --- */
+.btn-readmore {
+    display: inline-block;
+    background-color: #4fbfa8;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 14px 30px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.btn-readmore:hover {
+    background-color: #3aa690;
+}
+
+/* --- Slider Interface Pagination --- */
+.slider-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.slider-dots .dot {
+    width: 18px;
+    height: 10px;
+    background-color: #dddddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-dots .dot.active {
+    background-color: #4fbfa8;
+}
+
+/* --- Image Containers --- */
+.hero-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Stylized composition mask matching the layout balance */
+}
+
+
+
+
+
+/* --- Responsive Adaptability --- */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-content p {
+        margin: 0 auto 35px auto;
+    }
+    
+    .slider-dots {
+        justify-content: center;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+ 
+ .slide-img {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            animation-delay: 0.9S;
+            animation: fadeSlideshow 12s infinite ease-in-out;
+        }
+
+        /* Animation Timing Logic (3 Images total, 4s duration each):
+           Image 1: 0s delay
+           Image 2: 4s delay
+           Image 3: 8s delay
+        */
+        .slide-img:nth-child(1) {
+            animation-delay: 2s;
+        }
+        .slide-img:nth-child(2) {
+            animation-delay: 6s;
+        }
+        .slide-img:nth-child(3) {
+            animation-delay: 10s;
+        }
+
+        @keyframes fadeSlideshow {
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            33% { opacity: 1; }
+            38% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .footer{
+            background-color:#f8f4f4;
+            display: flex;
+             padding-top: 20px;
+             padding-left: 20px;
+             gap: 30%;
+        }
+        .footer-image{
+            display:inline;
+            gap: 10px;
+        }
+        .copy{
+            background-color:#f8f4f4;
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            padding-left: 40%;
+
+        
+        }
+        /* --- Reset and Core Styles --- */
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+   
+}
+@keyframes slideIn{
+      from{
+    opacity: 0;
+    transform: translateZ(-40px) scale(0.5) ;
+   }
+   to{
+     opacity: 1;
+    transform: translateZ(0) scale(1px)  ; 
+
+   }
+    
+}
+
+/* --- Left Side: Image Layout --- */
+.image-gallery {
+    position: relative;
+    width: 110%;
+    height: 600px;
+    background-color: white;
+    
+}
+.feature-item-1{
+    background-color: rgba(195, 193, 193, 0.589);
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: space-evenly;
+
+}
+.about-section{
+    background-color: white;
+}
+
+.bg-image-wrapper {
+    width: 80%;
+    height: 80%;
+    border-radius: 4px;
+    opacity: 0;
+    overflow: hidden;
+    animation: slideIn;
+    animation-duration: 10s;
+    animation-delay: 0.6s;
+     animation-fill-mode: forwards;
+}
+
+.bg-garden {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 55%;
+    height: 75%;
+    opacity: 0;
+    animation: slideIn;
+    animation-duration: 10s;
+    animation-delay: 0.8s;
+     animation-fill-mode: forwards;
+}
+
+.product-pack {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.15));
+}
+
+/* --- Right Side: Content Styling --- */
+.section-title {
+    font-size: 2.5rem;
+    color: #2e6f12; /* Deep Herbal Green */
+    position: relative;
+    top: 5px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideIn;
+    animation-duration: 8s;
+    animation-delay: 1s;
+     animation-fill-mode: forwards;
+}
+
+.section-title span {
+    color: #449221; /* Bright Accent Green */
+    opacity: 0;
+    animation: slideIn;
+    animation-duration: 8s;
+    animation-delay: 1s;
+     animation-fill-mode: forwards;
+}
+
+.description-text {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: slideIn;
+    animation-duration: 8s;
+    animation-delay: 3s;
+     animation-fill-mode: forwards;
+    
+}
+
+/* --- Feature Items Layout --- */
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    animation: fadeInSlideLeft 5S ;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+@keyframes fadeInSlideLeft {
+   from{
+    opacity: 0;
+    transform: translateY(-40px) scale(0.5) ;
+   }
+   to{
+     opacity: 1;
+    transform: translateY(0) scale(1) ; 
+
+   }
+}
+.feature-item{
+    background-color: rgba(211, 211, 211, 0.379);
+    border-radius: 15px;
+}
+
+.icon-box {
+    background-color: #ffffff;
+    border: 2px solid #8bc34a;
+    color: #8bc34a;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+    
+}
+
+.feature-text h3 {
+    color: #2e6f12;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.feature-text p {
+    color:black;
+    font-size: 0.95rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .image-gallery {
+        height: 380px;
+    }
+}
+/* Reset basic settings */
+
+
+
+/* Section Main Container */
+.features-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+animation: fadeInSlideLeft 5S ;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+@keyframes fadeInSlideLeft {
+   from{
+    opacity: 0;
+    transform: translateY(-40px) scale(0.5) ;
+   }
+   to{
+     opacity: 1;
+    transform: translateY(0) scale(1) ; 
+
+   }
+}
+
+/* Header Decorator Styling */
+.header-container {
+  margin-bottom: 60px;
+}
+
+.decorator-lines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.decorator-lines .line {
+  width: 40px;
+  height: 2px;
+  background-color: green;
+}
+
+.decorator-lines .square {
+  width: 14px;
+  height: 14px;
+  background-color: green;
+}
+
+/* Typography styling matching layout */
+.main-title {
+  color:  green;
+  font-size: 2.2rem;
+  font-weight: 700;
+  max-width: 600px;
+  margin: 0 auto 15px auto;
+}
+
+.subtitle {
+  color: #555555;
+  font-size: 1rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Grid Layout Construction */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual Feature Item Styling */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.icon-wrapper {
+  width: 85px;
+  height: 85px;
+  border: 1px solid #e8ede3;
+  background-color: #a2d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.icon-wrapper img {
+  width: 45px;
+  height: 45px;
+  /* Applies a green color overlay filter over standard icons */
+  filter: invert(56%) sepia(21%) saturate(958%) hue-rotate(51deg) brightness(91%) contrast(85%);
+}
+
+/* Item Text Styling */
+.feature-item h3 {
+  font-size: 1.05rem;
+  color: #2c661c;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.feature-item p {
+  font-size: 0.85rem;
+  color: black;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 35px;
+  }
+  .main-title {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+
+/* --- Container Section --- */
+.features-section {
+    padding: 80px 20px;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* --- Feature Individual Cards --- */
+.feature-card {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feature-text {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.icon-wrapper {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sketch-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Optional: turns colored image placeholders to dark gray line art style */
+    filter: grayscale(100%) contrast(90%); 
+}
+
+/* --- Text Styles --- */
+.badge-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #72b317b6; /* Light lime green badge color */
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.feature-heading {
+    font-size: 1.4rem;
+    color: #111111;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: -0.3px;
+}
+
+.feature-description {
+    font-size: 0.95rem;
+    color: black;
+    margin-bottom: 22px;
+    max-width: 320px; /* Keeps text paragraphs comfortably narrow */
+}
+/* faqs in about page */
+.faq-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Header Text Blocks */
+.faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.faq-subtitle {
+    color: #096631; /* Warm gold accent color */
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.faq-title {
+    color: black;
+    font-size: 2.2rem;
+    margin: 10px 0 15px 0;
+    font-weight: 700;
+}
+
+.faq-desc {
+    color: #7b6a6a;
+    font-size: 0.95rem;
+}
+
+/* Structural Accordion List Row */
+.faq-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Separation space between cards */
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #d4a373; /* Subtle glow ring on card hover */
+}
+
+/* Hiding the operational checkbox */
+.faq-toggle {
+    display: none;
+}
+
+/* Clickable Question Header row */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 25px;
+    color: #2c2c2c;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* CSS Pure Vector Plus Icon Construction */
+.faq-icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    background-color: #b58453;
+    transition: transform 0.3s ease;
+}
+
+/* Horizontal line of the plus icon */
+.faq-icon::before {
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+/* Vertical line of the plus icon */
+.faq-icon::after {
+    top: 0;
+    left: 8px;
+    width: 2px;
+    height: 100%;
+}
+
+/* Modern CSS Grid Transition trick for dynamic auto-height expanding */
+.faq-answer-block {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-content {
+    overflow: hidden;
+}
+
+.faq-answer-content p {
+    padding: 0 25px 25px 25px;
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- STATE CHANGE: WHEN BOX IS CHECKED (OPEN) --- */
+
+/* 1. Expand the grid height to reveal text smoothly */
+.faq-toggle:checked ~ .faq-answer-block {
+    grid-template-rows: 1fr;
+}
+
+/* 2. Rotate the custom icon block to simulate a minus/close key */
+.faq-toggle:checked ~ .faq-question .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-toggle:checked ~ .faq-question .faq-icon::after {
+    transform: scaleY(0); /* Completely shrinks away the vertical line, leaving only horizontal minus */
+}
+
+.faq-toggle:checked ~ .faq-question {
+    color: #b58453; /* Swaps header text color when open */
+}
+
+
+/* --- Read More Link Styling --- */
+.read-more-btn {
+    font-size: 0.95rem;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+.read-more-btn i {
+    font-size: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover Interactive States */
+.read-more-btn:hover {
+    color: #449221; /* Green accent on hover */
+}
+
+.read-more-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* --- Responsive Layout Breakpoints --- */
+@media (max-width: 992px) {
+    .features-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .features-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.product-images{
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 8px;
+    padding-left: 15px;
+
+}
+.product-container{
+    position: relative;
+flex-basis: 20%;
+padding-left: 25px;
+border-radius: 15px;
+
+}
+.product-images button{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-left: 20px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+}
+/* Slider Parent Container */
+.image-slider {
+    width: 100%;
+    overflow: hidden; /* Hides horizontal scrollbars */
+    padding: 30px 0;
+    position: relative;
+}
+
+/* Flexbox track combining both groups horizontally */
+.image-container{
+    display: flex;
+    width: max-content;
+    animation: scrollRightToLeft 25s linear infinite; /* Adjust '25s' to make it faster or slower */
+}
+
+/* Individual slide group containing images */
+.image-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;         /* Keeps uniform spacing between your images */
+    padding-right: 20px; /* Essential gap cushion between group 1 and group 2 */
+}
+
+/* Image Item Styles matching your layout dimensions */
+.image-group img {
+    width: 230px;      /* Consistent fixed width */
+    height: 150px;     /* Consistent fixed height */
+    object-fit: cover;
+    border-radius: 8px; /* Matching your clean curved card corners */
+}
+
+/* Optional Interactive Feature: Pauses the slider movement when hovered */
+.image-slider:hover .image-container {
+    animation-play-state: paused;
+}
+
+/* Loop Animation Logic */
+@keyframes scrollRightToLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves exactly halfway so the duplicate track cleanly replaces the first */
+    }
+}
+
+.contact-text{
+     text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@view-transition{
+    navigation: auto;
+}
+
+::view-transition-group(page-content){
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+::view-transition-old(page-content){
+    animation-name: slide-out;
+}
+@keyframes slide-out{
+    to{
+        translate: -100vw
+    }
+}
+::view-transition-new(page-content){
+    animation-name: slide-in;
+}
+main{
+    view-transition-name: page-content;
+}
+@keyframes slide-in{
+    from{
+        translate: 100vw;
+    }
+}
